@@ -1,0 +1,35 @@
+{
+  "name": "random-ip-generator",
+  "version": "1.1.0",
+  "description": "Generate unique random IPv4 and IPv6 addresses with validation support",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest",
+    "dev": "ts-node src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ip",
+    "ipv4",
+    "ipv6",
+    "random",
+    "generator",
+    "validation",
+    "network",
+    "address",
+    "unique",
+    "object-oriented"
+  ],
+  "author": "Navnath Kadam, navnathkadam22@gmail.com",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0"
+  }
+}
