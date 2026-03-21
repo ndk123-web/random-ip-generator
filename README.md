@@ -22,7 +22,7 @@ npm install random-ip-generator
 ### JavaScript
 
 ```javascript
-const { RandomIPv4, RandomIPv6 } = require('random-ip-generator');
+const { RandomIPv4, RandomIPv6 } = require('random-ip-gen');
 
 // IPv4
 const ipv4 = new RandomIPv4();
@@ -38,7 +38,7 @@ console.log(RandomIPv6.validate('2001:0db8:85a3:0000:0000:8a2e:0370:7334')); // 
 ### TypeScript
 
 ```typescript
-import { RandomIPv4, RandomIPv6 } from 'random-ip-generator';
+import { RandomIPv4, RandomIPv6 } from 'random-ip-gen';
 
 // IPv4
 const ipv4 = new RandomIPv4();
