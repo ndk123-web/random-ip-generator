@@ -14,7 +14,7 @@ Generate unique random IPv4 and IPv6 addresses with validation support.
 ## Installation
 
 ```bash
-npm install random-ip-generator
+npm install random-ip-gen
 ```
 
 ## Usage
