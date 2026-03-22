@@ -1,11 +1,22 @@
 {
-  "name": "random-ip-generator",
+  "name": "random-ip-gen",
   "version": "1.1.0",
   "description": "Generate unique random IPv4 and IPv6 addresses with validation support",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
   "scripts": {
-    "build": "tsc",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "test": "vitest",
     "dev": "ts-node src/index.ts",
     "prepublishOnly": "npm run build"
@@ -22,7 +33,6 @@
     "unique",
     "object-oriented"
   ],
-  "author": "Navnath Kadam, navnathkadam22@gmail.com",
   "license": "MIT",
   "files": [
     "dist"
@@ -31,5 +41,16 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "vitest": "^4.1.0"
-  }
+  },
+  "author": {
+    "name": "Navnath Kadam",
+    "email": "navnathkadam284@gmail.com",
+    "url": "https://github.com/ndk123-web"
+  },
+  "homepage": "https://github.com/ndk123-web/random-ip-generator",
+  "repository": {
+    "url": "https://github.com/ndk123-web/random-ip-generator",
+    "type": "git"
+  },
+  "dependencies": {}
 }
