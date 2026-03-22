@@ -12,8 +12,13 @@ npm install random-ip-gen
 
 ### JavaScript (CommonJS)
 
+<<<<<<< HEAD
 ```js
 const { RandomIPv4, RandomIPv6 } = require("random-ip-gen");
+=======
+```javascript
+const { RandomIPv4, RandomIPv6 } = require('random-ip-gen');
+>>>>>>> a81becdc34c6f5dee870120fda3edda01fce3c6c
 
 const ipv4 = new RandomIPv4();
 const ipv6 = new RandomIPv6();
@@ -27,8 +32,13 @@ console.log(RandomIPv6.validate("2001:0db8:85a3:0000:0000:8a2e:0370:7334"));
 
 ### TypeScript / ESM
 
+<<<<<<< HEAD
 ```ts
 import { RandomIPv4, RandomIPv6 } from "random-ip-gen";
+=======
+```typescript
+import { RandomIPv4, RandomIPv6 } from 'random-ip-gen';
+>>>>>>> a81becdc34c6f5dee870120fda3edda01fce3c6c
 
 const ipv4 = new RandomIPv4();
 const oneIp: string = ipv4.generate();
