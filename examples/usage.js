@@ -1,5 +1,5 @@
 // JavaScript Usage Examples
-const { RandomIPv4, RandomIPv6 } = require('../dist/src/index.js');
+const { RandomIPv4, RandomIPv6 } = require('../dist/cjs/index.js');
 
 // IPv4 Examples
 console.log('=== IPv4 Examples ===');
