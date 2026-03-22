@@ -1,82 +1,135 @@
-# random-ip-gen
+# Random IP Generator
 
-Small utility to generate random IPv4 and IPv6 addresses with validation.
+Generate unique random IPv4 and IPv6 addresses with validation support.
 
-## Install
+## Features
+
+- 🎲 Generate unique random IPv4 addresses
+- 🌐 Generate unique random IPv6 addresses  
+- ✅ Built-in IP address validation
+- 🔒 Per-instance uniqueness tracking
+- 📦 TypeScript and JavaScript support
+- 🚀 Lightweight and fast
+
+## Installation
 
 ```bash
-npm install random-ip-gen
+npm install random-ip-generator
 ```
 
 ## Usage
 
-### JavaScript (CommonJS)
+### JavaScript
 
-<<<<<<< HEAD
-```js
-const { RandomIPv4, RandomIPv6 } = require("random-ip-gen");
-=======
 ```javascript
 const { RandomIPv4, RandomIPv6 } = require('random-ip-gen');
->>>>>>> a81becdc34c6f5dee870120fda3edda01fce3c6c
 
+// IPv4
 const ipv4 = new RandomIPv4();
+console.log(ipv4.generate()); // 192.168.1.1
+console.log(RandomIPv4.validate('192.168.1.1')); // true
+
+// IPv6
 const ipv6 = new RandomIPv6();
-
-console.log(ipv4.generate());
-console.log(ipv6.generate());
-
-console.log(RandomIPv4.validate("192.168.0.10"));
-console.log(RandomIPv6.validate("2001:0db8:85a3:0000:0000:8a2e:0370:7334"));
+console.log(ipv6.generate()); // 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+console.log(RandomIPv6.validate('2001:0db8:85a3:0000:0000:8a2e:0370:7334')); // true
 ```
 
-### TypeScript / ESM
+### TypeScript
 
-<<<<<<< HEAD
-```ts
-import { RandomIPv4, RandomIPv6 } from "random-ip-gen";
-=======
 ```typescript
 import { RandomIPv4, RandomIPv6 } from 'random-ip-gen';
->>>>>>> a81becdc34c6f5dee870120fda3edda01fce3c6c
 
+// IPv4
 const ipv4 = new RandomIPv4();
-const oneIp: string = ipv4.generate();
+const ip: string = ipv4.generate();
+const isValid: boolean = RandomIPv4.validate(ip);
 
+// IPv6
 const ipv6 = new RandomIPv6();
-const manyIpv6: string[] = ipv6.generateMultiple(3);
-
-console.log(oneIp);
-console.log(manyIpv6);
+const ipv6Ip: string = ipv6.generate();
+const isValid6: boolean = RandomIPv6.validate(ipv6Ip);
 ```
 
-## API
+## API Reference
 
-Both classes have the same instance methods:
+### RandomIPv4
 
-- generate(): string
-- generateMultiple(count: number): string[]
-- getUniqueCount(): number
-- clear(): void
+#### Constructor
+```typescript
+new RandomIPv4()
+```
 
-Static validation methods:
+#### Methods
 
-- RandomIPv4.validate(ip: string): boolean
-- RandomIPv6.validate(ip: string): boolean
+- `generate(): string` - Generate a unique random IPv4 address
+- `generateMultiple(count: number): string[]` - Generate multiple unique IPv4 addresses
+- `getUniqueCount(): number` - Get count of unique IPs generated
+- `clear(): void` - Clear all generated IPs from memory
 
-## Dev
+#### Static Methods
+
+- `validate(ip: string): boolean` - Validate IPv4 address format
+
+### RandomIPv6
+
+#### Constructor
+```typescript
+new RandomIPv6()
+```
+
+#### Methods
+
+- `generate(): string` - Generate a unique random IPv6 address
+- `generateMultiple(count: number): string[]` - Generate multiple unique IPv6 addresses
+- `getUniqueCount(): number` - Get count of unique IPs generated
+- `clear(): void` - Clear all generated IPs from memory
+
+#### Static Methods
+
+- `validate(ip: string): boolean` - Validate IPv6 address format
+
+## Examples
+
+```typescript
+// Generate 10 unique IPv4 addresses
+const ipv4 = new RandomIPv4();
+const ips = ipv4.generateMultiple(10);
+console.log(ips); // ['192.168.1.1', '10.0.0.1', ...]
+
+// Validate IP addresses
+console.log(RandomIPv4.validate('192.168.1.1')); // true
+console.log(RandomIPv4.validate('invalid.ip')); // false
+
+// Per-instance uniqueness
+const ipv4a = new RandomIPv4();
+const ipv4b = new RandomIPv4();
+
+console.log(ipv4a.generate()); // 192.168.1.1
+console.log(ipv4b.generate()); // 192.168.1.1 (different instance, can be same)
+console.log(ipv4a.generate()); // 10.0.0.1 (different from previous in same instance)
+```
+
+## Development
 
 ```bash
+# Install dependencies
 npm install
+
+# Build
 npm run build
+
+# Test
 npm test
+
+# Development
+npm run dev
 ```
-
-Build output:
-
-- CommonJS: dist/cjs
-- ESM: dist/esm
 
 ## License
 
 MIT
+
+## Contributing
+
+Pull requests are welcome! For major changes, please open an issue first.
